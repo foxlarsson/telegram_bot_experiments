@@ -1,6 +1,6 @@
 # To Do List Telegram Bot from Scratch
 
-## Bot DescriotionPI. 
+## Bot Descriotion
 This is a basic todo list bot. It adds the contents of your message to a todo list and allows you to remove them using a virtual Telegram keyboard.
 
 ## Resources
