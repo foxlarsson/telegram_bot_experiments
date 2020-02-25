@@ -21,7 +21,7 @@ def boop(update, context):
     context.bot.send_photo(chat_id=chat_id, photo=url)
 
 def main():
-    updater = Updater('1073983033:AAEXbRxvIsCSG3o2xKxdgNBk0NGfmseRCnk', use_context=True)
+    updater = Updater(<telegram api token>, use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('boop', boop))
     updater.start_polling()
