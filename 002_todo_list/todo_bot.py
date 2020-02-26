@@ -55,9 +55,22 @@ def handle_updates(updates):
             keyboard = build_keyboard(items)
             send_message('Select an item to delete:', chat, keyboard)
         elif text =='/start':
-            send_message('Welcome to your personal TO DO list. Send me a text and I\'ll store it as an item. Send /done to remove items', chat)
+            send_message('Welcome to your personal TO DO list. Send me a text and I\'ll store it as an item. \n'
+                         'Type /help to see list of abailable commands', chat)
+        elif text == '/help':
+            send_message('Here is a list of commands you can use: \n'
+                         '/start - starts chat with bot, you really only need to use this once \n'
+                         '/help - lists all commands available'
+                         '/done - shows virtual keyboard to remove tasks from your list, '
+                         'just click on an item to remove it \n'
+                         '/show - shows all the items on your to do list\n'
+                         'To add items simply send me a word or phrase', chat)
+        elif text == '/show':
+            items = db.get_items(chat)
+            message = '\n'.join(items)
+            send_message(message, chat)
         elif text.startswith('/'):
-            continue
+            send_message('Sorry, no such command. Type /help for list of available commands.', chat)
         elif text in items:
             db.delete_item(text, chat)
             items = db.get_items(chat)
